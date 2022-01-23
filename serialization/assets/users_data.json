@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Yvette Kelley",
+    "sex": "F",
+    "age": "32"
+  },
+  {
+    "id": 2,
+    "name": "Isabel Byrne",
+    "sex": "F",
+    "age": "65"
+  },
+  {
+    "id": 3,
+    "name": "Kyran Mcarthur",
+    "sex": "M",
+    "age": "26"
+  },
+  {
+    "id": 4,
+    "name": "Gwen Black",
+    "sex": "M",
+    "age": "44"
+  },
+  {
+    "id": 5,
+    "name": "Isobelle Nicholls",
+    "sex": "F",
+    "age": "53"
+  },
+  {
+    "id": 6,
+    "name": "Tiya Gibson",
+    "sex": "F",
+    "age": "29"
+  },
+  {
+    "id": 7,
+    "name": "April Dougherty",
+    "sex": "F",
+    "age": "36"
+  },
+  {
+    "id": 8,
+    "name": "Rick Whitfield",
+    "sex": "M",
+    "age": "23"
+  },
+  {
+    "id": 9,
+    "name": "Stella Pitts",
+    "sex": "M",
+    "age": "28"
+  }
+]
