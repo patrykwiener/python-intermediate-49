@@ -31,28 +31,54 @@ Do budowy ścieżek posłużyć się funkcjami z modułu 'os', który należy za
 """
 import os
 
+print(__file__)
+current_file = __file__
+exercise_1_read_files = os.path.dirname(current_file)
+exercises = os.path.dirname(exercise_1_read_files)
+
 EXERCISES_PATH = os.path.dirname(os.path.dirname(__file__))
+ASSETS_PATH = os.path.join(EXERCISES_PATH, 'assets')
 
 PATHS = [
-    os.path.join(EXERCISES_PATH, 'assets', 'file1'),
-    os.path.join(EXERCISES_PATH, 'assets', 'file2'),
-    os.path.join(EXERCISES_PATH, 'assets', 'file3'),
-    os.path.join(EXERCISES_PATH, 'assets', 'file4'),
+    os.path.join(ASSETS_PATH, 'file1'),
+    os.path.join(ASSETS_PATH, 'file2'),
+    os.path.join(ASSETS_PATH, 'file22'),
+    os.path.join(ASSETS_PATH, 'file3'),
+    os.path.join(ASSETS_PATH, 'file4'),
 ]
 
 
 def read_file(file_path):
-    pass
+    # file = open(file_path)
+    # lines = file.readlines()
+    # file.close()
+    # return lines
+    with open(file_path, encoding='utf-8') as f:
+        return f.readlines()
 
 
 def read_files(file_paths):
-    pass
+    files_content = []
+
+    for file_path in file_paths:
+        try:
+            lines = read_file(file_path=file_path)
+            files_content.append(lines)
+        except FileNotFoundError:
+            files_content.append([])
+
+    return files_content
 
 
 if __name__ == '__main__':
-    # path = os.path.join(EXERCISES_PATH, 'assets', 'file1')
-    # print(read_file(file_path=path))
+    path = os.path.join(EXERCISES_PATH, 'assets', 'file1')
+    print(read_file(file_path=path))
 
     content = read_files(PATHS)
     for file_content in content:
         print(file_content)
+
+    # [
+    #     ['Przepis na pizze; cos tam cos tam', 'Przepis na kluski'],
+    #     [],  # nieistniejacy plik
+    # ]
