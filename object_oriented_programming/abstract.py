@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from math import pi
+from typing import List
 
 
 class Figura(ABC):
@@ -56,12 +57,33 @@ class Kwadrat(Figura):
         return self.a * self.a
 
 
+def sum_figures_circuit(figures: List[Figura]):
+    sum = 0
+    for figure in figures:
+        sum += figure.obwod()
+    return sum
+
+
 if __name__ == '__main__':
     prostokat = Prostokat('Pink', 3, 5)
     kolo = Kolo('Red', 12)
-    print(prostokat.obwod())
-    print(kolo.obwod())
     kwadrat = Kwadrat('Blue', 5)
-    print(kwadrat.obwod())
-    print(kwadrat.pole())
+
+    figure_list = [
+        prostokat,
+        kolo,
+        kwadrat,
+    ]
+
+    sum = sum_figures_circuit(figures=figure_list)
+    print(sum)
+
+    for figure in figure_list:
+        print(figure.obwod())
+        print(figure.pole())
+
+    # print(prostokat.obwod())
+    # print(kolo.obwod())
+    # print(kwadrat.obwod())
+    # print(kwadrat.pole())
     kwadrat.show_color()
