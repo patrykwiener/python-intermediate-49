@@ -23,18 +23,11 @@ Chcemy doprowadzić do takiej sytuacji, gdzie wykorzystamy oba dekoratory na raz
 
 
 def to_uppercase(func):
-    def wrapper(*args, **kwargs):
-        return func(*args, **kwargs).upper()
-
-    return wrapper
+    pass
 
 
 def include_length(func):
-    def wrapper(*args, **kwargs):
-        result = func(*args, **kwargs)
-        return len(result), result
-
-    return wrapper
+    pass
 
 
 @include_length
