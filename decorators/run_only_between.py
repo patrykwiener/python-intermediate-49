@@ -3,14 +3,14 @@ from datetime import datetime
 
 def run_only_between(from_=7, to_=22):
     # dekorator, który wywołuje udekorowaną funkcję tylko w określonych godzinach
-    def dec(func):
+    def decorator(func):
         def wrapper():
             if from_ <= datetime.now().hour < to_:
                 func()
 
         return wrapper
 
-    return dec
+    return decorator
 
 
 @run_only_between(10, 20)
