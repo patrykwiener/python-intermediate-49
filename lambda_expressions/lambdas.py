@@ -13,3 +13,5 @@ if __name__ == '__main__':
     equals_lambda = lambda x, y: x == y
     print(equals_lambda(1, 2))  # False
     print(equals_lambda(1, 1))  # True
+
+    print(square_lambda(5))
