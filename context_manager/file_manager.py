@@ -10,7 +10,7 @@ class FileManager:
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.file_obj.close()
-        return True
+        return False
 
 
 if __name__ == '__main__':
