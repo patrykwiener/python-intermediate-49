@@ -45,13 +45,11 @@ if __name__ == '__main__':
         }
     ]
 
-    sorted_dicts = sorted(dicts, key=lambda x: x['priority'])
-    sorted_dicts = sorted(dicts, key=lambda x: x.get('priority'))
-    print(sorted_dicts)
+    # sorted_dicts =
     assert sorted_expected == sorted_dicts
 
-    minimum = min(dicts, key=lambda x: x['priority'])
+    # minimum =
     assert minimum == {'id': 6, 'priority': 1}
 
-    maximum = max(dicts, key=lambda x: x['priority'])
+    # maximum =
     assert maximum == {'id': 4, 'priority': 5}

@@ -29,15 +29,7 @@ class PytestRaisesEquivalent:
         pass
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        # algebra boola
-        # if exc_type is None:
-        if not exc_type:
-            raise AssertionError
-        if self._exception_type is not exc_type:
-            raise AssertionError
-        if self._match and self._match is not str(exc_val):
-            raise AssertionError
-        return True
+        pass
 
 
 def func(param):
