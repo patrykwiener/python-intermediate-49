@@ -1,6 +1,19 @@
+import threading
 import timeit
+
 import requests
 
+from context_manager.exercises.exercise_3_timer import Timer
+
+"""
+Without threading
+----> request ---> result ---> request ---> result ----> request ---> result ---> END
+
+Threading
+-----------> request ----> result -\
+-----------> request ----> result ---> END
+-----------> request ----> result -/
+"""
 
 def crawl(url, dest):
     try:
@@ -18,8 +31,6 @@ def wo_threading_func(urls):
 
 
 def with_threading_func(urls):
-    import threading
-
     threads = []
     for url in urls:
         th = threading.Thread(target=crawl, args=(url, "with_threads.txt"))
@@ -31,30 +42,35 @@ def with_threading_func(urls):
 
 
 if __name__ == "__main__":
-    # urls = [
-    #         "https://jsonplaceholder.typicode.com/comments/1",
-    #         "https://jsonplaceholder.typicode.com/comments/2",
-    #         "https://jsonplaceholder.typicode.com/comments/3"
-    # ]
-    # without_threading_func(urls=urls)
-    # with_threading_func(urls)
+    urls = [
+        "https://jsonplaceholder.typicode.com/comments/1",
+        "https://jsonplaceholder.typicode.com/comments/2",
+        "https://jsonplaceholder.typicode.com/comments/3"
+    ]
+    with Timer():
+        for _ in range(10):
+            wo_threading_func(urls=urls)
 
-    wo_threading = "wo_threading_func(urls)"
-    with_threading = "with_threading_func(urls)"
+    with Timer():
+        for _ in range(10):
+            with_threading_func(urls)
 
-    setup = '''
-from __main__ import wo_threading_func, with_threading_func
-
-urls = [
-    "https://jsonplaceholder.typicode.com/comments/1",
-    "https://jsonplaceholder.typicode.com/comments/2",
-    "https://jsonplaceholder.typicode.com/comments/3"
-]
-    '''
-
-    print("Bez watkow:", timeit.timeit(stmt=wo_threading,
-                                       setup=setup,
-                                       number=100))
-    print("Z watkami", timeit.timeit(stmt=with_threading,
-                                     setup=setup,
-                                     number=100))
+#     wo_threading = "wo_threading_func(urls)"
+#     with_threading = "with_threading_func(urls)"
+#
+#     setup = '''
+# from __main__ import wo_threading_func, with_threading_func
+#
+# urls = [
+#     "https://jsonplaceholder.typicode.com/comments/1",
+#     "https://jsonplaceholder.typicode.com/comments/2",
+#     "https://jsonplaceholder.typicode.com/comments/3"
+# ]
+#     '''
+#
+#     print("Bez watkow:", timeit.timeit(stmt=wo_threading,
+#                                        setup=setup,
+#                                        number=10))
+#     print("Z watkami", timeit.timeit(stmt=with_threading,
+#                                      setup=setup,
+#                                      number=10))

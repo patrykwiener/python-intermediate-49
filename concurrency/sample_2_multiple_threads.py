@@ -1,3 +1,4 @@
+import threading
 import timeit
 
 
@@ -11,8 +12,6 @@ def wo_threading_func():
 
 
 def with_threading_func():
-    import threading
-
     t1 = threading.Thread(target=count, args=(400000, 200000))
     t2 = threading.Thread(target=count, args=(200000, 0))
 

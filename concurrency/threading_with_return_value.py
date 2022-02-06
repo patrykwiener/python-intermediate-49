@@ -9,6 +9,7 @@ class ThreadWithReturnValue(threading.Thread):
         self.target = target
         self.args = args
         self.kwargs = kwargs
+        self.result = None
         super().__init__()
 
     def run(self):
