@@ -11,9 +11,19 @@ W tym celu uzupelnij cialo generatora index_generator.
 
 
 def index_generator():
-    pass
+    index = 0
+    while True:
+        yield index
+        index += 1
 
 
+# def index_generator(index):
+#     while True:
+#         yield index
+#         index += 1
+
+
+# index_generator_instance = index_generator(index=0)
 index_generator_instance = index_generator()
 
 
@@ -32,8 +42,7 @@ class Account:
 if __name__ == '__main__':
     accounts = [
         Account(username='sample_username', password='sample_password')
-        for _
-        in range(10)
+        for _ in range(10)
     ]
 
     array = []

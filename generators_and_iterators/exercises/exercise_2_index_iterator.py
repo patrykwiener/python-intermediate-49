@@ -22,7 +22,9 @@ class IndexIterator:
         return self
 
     def __next__(self):
-        pass
+        index = self._index
+        self._index += 1
+        return index
 
 
 index_iterator = IndexIterator()
@@ -44,8 +46,7 @@ class Account:
 if __name__ == '__main__':
     accounts = [
         Account(username='sample_username', password='sample_password')
-        for _
-        in range(10)
+        for _ in range(10)
     ]
 
     expected_id = 0

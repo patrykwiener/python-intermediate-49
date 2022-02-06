@@ -21,7 +21,7 @@ def get_n_primes(n):
 
 if __name__ == '__main__':
     start = time.time()
-    lst = get_n_primes(100000)
+    lst = get_n_primes(1000)
     for elem in lst:
         print(elem)
     print(time.time() - start)

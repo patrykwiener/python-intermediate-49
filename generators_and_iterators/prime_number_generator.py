@@ -5,6 +5,7 @@ def prime_generator(n):
     # Generator pozwalający na iterowanie po n liczbach pierwszych
     number = 2
     generated_numbers = 0
+
     while generated_numbers != n:
         if is_prime(number):
             yield number
@@ -13,7 +14,7 @@ def prime_generator(n):
 
 
 if __name__ == '__main__':
-    gen = prime_generator(1000000)
+    gen = prime_generator(100000)
     a = next(gen)
     b = next(gen)
     c = next(gen)

@@ -13,24 +13,35 @@ class PrimeIterator:
     def __iter__(self):
         return self
 
+    # def __next__(self):
+    #     self.number += 1
+    #     # if self.generated_numbers >= self.n:
+    #     #     raise StopIteration
+    #     if is_prime(self.number):
+    #         # self.generated_numbers += 1
+    #         return self.number
+    #     return self.__next__()
+
+# next(iter) -> self.__next__() -> realizacja dla 5
+
     def __next__(self):
-        self.number += 1
-        if self.generated_numbers >= self.n:
-            raise StopIteration
-        elif is_prime(self.number):
-            self.generated_numbers += 1
-            return self.number
-        return self.__next__()
+        while True:
+            self.number += 1
+            if self.generated_numbers == self.n:
+                raise StopIteration
+            if is_prime(self.number):
+                self.generated_numbers += 1
+                return self.number
 
 
 if __name__ == '__main__':
     start = time.time()
-    iter = PrimeIterator(n=3)
+    iter = PrimeIterator(n=100000)
 
-    # a = iter.__next__()
-    # b = iter.__next__()
-    # c = next(iter)
-    # d = next(iter)
+    a = iter.__next__()
+    b = iter.__next__()
+    c = next(iter)
+    d = next(iter)
 
     for elem in iter:
         print(elem)
