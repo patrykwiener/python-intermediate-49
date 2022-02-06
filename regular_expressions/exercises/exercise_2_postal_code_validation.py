@@ -9,7 +9,7 @@ import re
 
 
 def postal_code_validation(postal_code):
-    pass
+    return re.search(r'^\d{2}-\d{3}$', postal_code)
 
 
 if __name__ == '__main__':

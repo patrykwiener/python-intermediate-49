@@ -19,7 +19,8 @@ class InvalidPinFormatError(Exception):
 
 
 def validate_pin_registration(pin):
-    pass
+    if not re.search(r'^\d{4}$', pin):
+        raise InvalidPinFormatError()
 
 
 if __name__ == '__main__':

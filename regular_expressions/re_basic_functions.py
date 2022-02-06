@@ -2,7 +2,7 @@ import re
 
 
 def search_sample():
-    match = re.search(r"[A-Z]la", "ala Ola Ela")
+    match = re.search(r"[A-Z]la", "ala Ola Ela")  # <4, 7)
     print(match)
     print(match.group(0))
 
@@ -29,10 +29,12 @@ def match_sample():
 
 def fullmatch_sample():
     match = re.fullmatch(r"[A-Z]la", "Ela")
+    match = re.search(r"^[A-Z]la$", "Ela")
     print(match)
 
     # None - sprawdza caly teskst
     match = re.fullmatch(r"[A-Z]la", "Ola ala Ela")
+    match = re.search(r"^[A-Z]la$", "Ola ala Ela")
     print(match)
 
 
